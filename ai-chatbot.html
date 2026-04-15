@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABD AI — Intelligent Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="ai-chatbot.css">
+</head>
+<body>
+
+<div id="landing" class="page active">
+  <div class="landing-bg"></div>
+  <div class="landing-grid"></div>
+
+  <nav class="landing-nav">
+    <div class="logo">ABD<span class="logo-dot">AI</span></div>
+    <div class="nav-links">
+      <button class="btn-nav" onclick="showPage('login')">Get Started →</button>
+    </div>
+  </nav>
+
+  <div class="landing-hero">
+    <h1 class="hero-title">Talk to AI<br>Like Never<br><span>Before.</span></h1>
+    <p class="hero-subtitle">ABD AI understands your voice, sees through your camera, reads your documents, and analyses your clipboard — all in one seamless chat.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="showPage('login')"><i class="fas fa-rocket"></i> Start Chatting Free</button>
+    </div>
+    <div class="hero-features">
+      <div class="hero-feature"><i class="fas fa-microphone"></i> Voice Input</div>
+      <div class="hero-feature"><i class="fas fa-camera"></i> Webcam Vision</div>
+      <div class="hero-feature"><i class="fas fa-clipboard"></i> Clipboard AI</div>
+      <div class="hero-feature"><i class="fas fa-file-pdf"></i> Document Analysis</div>
+    </div>
+  </div>
+
+  <div class="landing-cards">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-microphone"></i></div>
+      <div class="feature-title">Voice Conversations</div>
+      <div class="feature-desc">Speak naturally and let ABD AI transcribe and respond in real-time with browser-native speech recognition.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-video"></i></div>
+      <div class="feature-title">Webcam Awareness</div>
+      <div class="feature-desc">Ask AI to look through your camera and describe everything it sees with detailed visual analysis.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
+      <div class="feature-title">Clipboard Intelligence</div>
+      <div class="feature-desc">Paste any content — code errors, text, logs — and ABD AI instantly explains and troubleshoots it.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+      <div class="feature-title">Document Insights</div>
+      <div class="feature-desc">Upload PDFs or images and ABD AI will thoroughly analyse and explain all the content inside them.</div>
+    </div>
+  </div>
+</div>
+
+<div id="login" class="page">
+  <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--gray-100);padding:24px;">
+    <div class="login-split">
+      <div class="login-left">
+        <div class="login-left-logo">ABD<span>AI</span></div>
+        <div class="login-left-text">
+          <h2>Your intelligent assistant awaits.</h2>
+          <p>Join thousands of users having smarter conversations with ABD AI's multimodal intelligence.</p>
+        </div>
+        <div class="login-left-stats">
+          <div class="stat-item"><div class="stat-num">10x</div><div class="stat-label">Faster than GPT</div></div>
+          <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Modalities</div></div>
+          <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Conversations</div></div>
+        </div>
+      </div>
+      <div class="login-right">
+        <div style="cursor:pointer;margin-bottom:24px;font-size:13px;color:var(--gray-500);display:flex;align-items:center;gap:6px;" onclick="showPage('landing')">
+          <i class="fas fa-arrow-left"></i> Back
+        </div>
+        <h3>Welcome Back</h3>
+        <p>Sign in to continue to ABD AI — or use demo mode.</p>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="you@example.com" value="demo@abdai.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="form-input-wrap">
+            <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" value="password123" style="padding-right:44px;">
+            <button class="toggle-pw" onclick="togglePw()" type="button"><i class="fas fa-eye" id="pwIcon"></i></button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Groq API Key <span style="color:var(--orange);font-size:11px;">(Required for AI)</span></label>
+          <div class="form-input-wrap">
+            <input type="password" id="groqKeyInput" class="form-input" placeholder="gsk_..." style="padding-right:44px;">
+            <button class="toggle-pw" onclick="toggleGroqKey()" type="button"><i class="fas fa-eye" id="groqKeyIcon"></i></button>
+          </div>
+          <div style="font-size:11px;color:var(--gray-500);margin-top:4px;">Get your free key at <a href="https://console.groq.com" target="_blank" style="color:var(--orange);">console.groq.com</a></div>
+        </div>
+
+        <button class="btn-login" onclick="handleLogin()">Sign In &amp; Launch ABD AI</button>
+
+        <div class="login-divider"><span>or</span></div>
+        <button class="btn-demo" onclick="handleDemo()"><i class="fas fa-flask" style="margin-right:6px;"></i> Continue in Demo Mode (No Key Needed for UI)</button>
+        <div class="login-footer-note">Don't have an account? <a href="#">Create one free</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="chat" class="page">
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" id="sidebarLogo">ABD<span>AI</span></div>
+      <button class="sidebar-toggle" onclick="toggleSidebar()" title="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <button class="sidebar-new-chat" onclick="newChat()">
+      <i class="fas fa-plus"></i>
+      <span class="sidebar-text">New Conversation</span>
+    </button>
+
+    <div class="sidebar-section sidebar-text">Recent</div>
+
+    <div class="sidebar-chats" id="chatList">
+      <div class="chat-item active">
+        <i class="fas fa-comment"></i>
+        <span>New Conversation</span>
+      </div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <button class="sidebar-action" onclick="openSettings()">
+        <i class="fas fa-key"></i>
+        <span class="sidebar-text">API Settings</span>
+      </button>
+      <div class="sidebar-user">
+        <div class="user-avatar" id="userAvatarSidebar">U</div>
+        <div class="sidebar-text">
+          <div class="user-name" id="userNameSidebar">User</div>
+          <div class="user-role">Free Plan</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+    <div class="chat-main">
+        <div class="chat-topbar">
+      <div class="chat-topbar-left">
+        <button class="topbar-btn" id="mobileSidebarBtn" onclick="toggleMobileSidebar()" style="display:none;">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div>
+          <div class="chat-topbar-title">ABD AI Assistant</div>
+          <div class="chat-status"><div class="status-dot"></div> Online &amp; Ready</div>
+        </div>
+      </div>
+      <div class="chat-topbar-actions">
+        <button class="topbar-btn" id="clipboardBtn" onclick="readClipboard()" title="Read Clipboard">
+          <i class="fas fa-clipboard"></i>
+        </button>
+        <button class="topbar-btn" id="webcamBtn" onclick="toggleWebcam()" title="Toggle Webcam">
+          <i class="fas fa-camera"></i>
+        </button>
+        <button class="topbar-btn" onclick="newChat()" title="New Chat">
+          <i class="fas fa-plus"></i>
+        </button>
+        <button class="topbar-btn" onclick="showPage('login')" title="Sign Out">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </div>
+    </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-orb"><i class="fas fa-brain"></i></div>
+        <div>
+          <div class="welcome-title">Hello, I'm ABD AI</div>
+          <div class="welcome-subtitle">Ask me anything. Use voice, share your camera, paste from clipboard, or upload documents.</div>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="sendQuickPrompt('Open my webcam and describe what you see')">
+            <i class="fas fa-video"></i>
+            <strong>See my camera</strong>
+            <span>Open webcam and describe the scene</span>
+          </div>
+          <div class="welcome-card" onclick="sendQuickPrompt('Read my clipboard and explain what it contains')">
+            <i class="fas fa-clipboard"></i>
+            <strong>Read clipboard</strong>
+            <span>Paste &amp; analyse any content</span>
+          </div>
+          <div class="welcome-card" onclick="triggerFileAttach()">
+            <i class="fas fa-file-upload"></i>
+            <strong>Upload document</strong>
+            <span>Analyse a PDF or image file</span>
+          </div>
+          <div class="welcome-card" onclick="startVoice()">
+            <i class="fas fa-microphone"></i>
+            <strong>Voice message</strong>
+            <span>Speak your question aloud</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="webcam-panel" id="webcamPanel">
+      <div class="webcam-header">
+        <div class="webcam-title"><i class="fas fa-video"></i> Live Webcam Feed</div>
+        <div class="webcam-controls">
+          <button class="webcam-btn" onclick="captureAndAnalyze()"><i class="fas fa-eye"></i> Analyse Frame</button>
+          <button class="webcam-btn danger" onclick="stopWebcam()"><i class="fas fa-times"></i> Close</button>
+        </div>
+      </div>
+      <div class="webcam-video-wrap">
+        <video id="webcamVideo" autoplay playsinline muted></video>
+        <canvas id="captureCanvas" style="display:none;"></canvas>
+      </div>
+    </div>
+
+        <div class="input-zone">
+      <div id="clipboardBanner" class="clipboard-banner">
+        <i class="fas fa-clipboard"></i>
+        <div class="clipboard-text" id="clipboardPreviewText">...</div>
+        <div class="clipboard-actions">
+          <button class="clipboard-action-btn" onclick="useClipboardContent()">Analyse</button>
+          <button class="clipboard-action-btn dismiss" onclick="dismissClipboard()">Dismiss</button>
+        </div>
+      </div>
+      <div id="attachmentPreviewBar" class="attachment-preview-bar"></div>
+      <div class="input-row">
+        <div class="input-row-actions">
+          <button class="input-icon-btn" onclick="triggerFileAttach()" title="Attach file (image/PDF)">
+            <i class="fas fa-paperclip"></i>
+          </button>
+          <input type="file" id="fileInput" accept="image/*,.pdf" onchange="handleFileAttach(event)">
+        </div>
+        <textarea
+          id="messageInput"
+          placeholder="Ask anything... or press the mic to speak"
+          rows="1"
+          onkeydown="handleInputKeydown(event)"
+          oninput="autoResizeTextarea(this)"
+        ></textarea>
+        <button class="input-icon-btn" id="micBtn" onclick="toggleVoice()" title="Voice input">
+          <i class="fas fa-microphone"></i>
+        </button>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send (Enter)">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <div class="input-hints">
+        <span class="input-hint"><kbd>Enter</kbd> to send &nbsp;·&nbsp; <kbd>Shift+Enter</kbd> new line</span>
+        <span class="input-hint" id="voiceStatus" style="color:var(--orange);display:none;"><i class="fas fa-circle" style="color:#ef4444;font-size:8px;"></i> Listening…</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal">
+    <h3>⚙️ API Settings</h3>
+    <p>Update your Groq API key to enable AI responses. Get a free key at <a href="https://console.groq.com" target="_blank" style="color:var(--orange);">console.groq.com</a></p>
+    <div class="form-group">
+      <label class="form-label">Groq API Key</label>
+      <input type="text" id="settingsGroqKey" class="form-input" placeholder="gsk_...">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Model</label>
+      <select id="modelSelect" class="form-input">
+        <option value="meta-llama/llama-4-scout-17b-16e-instruct">Llama 4 Scout (Vision + Fast)</option>
+        <option value="llama-3.3-70b-versatile">Llama 3.3 70B Versatile</option>
+        <option value="llama-3.1-8b-instant">Llama 3.1 8B Instant</option>
+        <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closeSettings()">Cancel</button>
+      <button class="btn-modal-confirm" onclick="saveSettings()">Save Settings</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="ai-chatbot.js"></script>
+</body>
+</html>
